@@ -88,6 +88,6 @@ func ReadMods(message *plugin.Message) ([]modinfo.Mod, error) {
 			Version: version,
 		})
 	}
-	message.Data = buf.Bytes() // left data bytes
+	//message.Data = buf.Bytes() // left data bytes
 	return mods, nil
 }

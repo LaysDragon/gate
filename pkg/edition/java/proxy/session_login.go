@@ -306,7 +306,7 @@ func (l *loginSessionHandler) completeLoginProtocolPhaseAndInit(player *connecte
 	// let InitialConnectSessionHandler do further work.
 	player.setSessionHandler(newInitialConnectSessionHandler(player))
 	l.event().Fire(&PostLoginEvent{player: player})
-	l.connectToInitialServer(player)
+	go l.connectToInitialServer(player)
 }
 
 func (l *loginSessionHandler) connectToInitialServer(player *connectedPlayer) {
