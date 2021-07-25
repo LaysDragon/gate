@@ -283,15 +283,15 @@ var (
 	// Sent a hello to the client, waiting for a hello back before sending the mod list.
 	helloLegacyForgeHandshakeBackendPhase = &legacyForgeHandshakeBackendPhase{
 		packetToAdvanceOn:      intPtr(forge.ModListDiscriminator),
-		nextPhase:              sendModListLegacyForgeHandshakeBackendPhase,
+		nextPhase:              sendServerDataLegacyForgeHandshakeBackendPhase,
 		onTransitionToNewPhase: nil, // see init()
 	}
 	// The mod list from the client has been accepted and a server mod list
 	// has been sent. Waiting for the client to acknowledge.
-	sendModListLegacyForgeHandshakeBackendPhase = &legacyForgeHandshakeBackendPhase{
-		packetToAdvanceOn: intPtr(forge.ModListDiscriminator),
-		nextPhase:         sendServerDataLegacyForgeHandshakeBackendPhase,
-	}
+	//sendModListLegacyForgeHandshakeBackendPhase = &legacyForgeHandshakeBackendPhase{
+	//	packetToAdvanceOn: intPtr(forge.ModListDiscriminator),
+	//	nextPhase:         sendServerDataLegacyForgeHandshakeBackendPhase,
+	//}
 	// The server data is being sent or has been sent, and is waiting for
 	// the client to acknowledge it has processed this.
 	sendServerDataLegacyForgeHandshakeBackendPhase = &legacyForgeHandshakeBackendPhase{
