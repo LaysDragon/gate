@@ -57,7 +57,7 @@ func LegacyUnregister(p *Message) bool {
 
 // Channels fetches all the channels in a register or unregister plugin message.
 func Channels(p *Message) (channels []string) {
-	if p == nil || len(p.Data) == 0 || !Register(p) || !Unregister(p) {
+	if p == nil || len(p.Data) == 0 || (!Register(p) && !Unregister(p)) {
 		return
 	}
 	return strings.Split(string(p.Data), "\000") // split null-terminated
